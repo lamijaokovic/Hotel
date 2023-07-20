@@ -45,6 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $broj_osoba = $_POST['broj_osoba'];
         $soba = $_POST['soba'];
 
+
+// Provjera valjanosti imena i prezimena (mora sadržavati najmanje 3 slova)
+if (strlen($ime) < 3 || strlen($prezime) < 3) {
+     echo '<script>alert("Ime i prezime moraju sadržavati najmanje 3 slova.")</script>';
+    // Prekini daljnje izvršavanje koda
+    exit;
+}
+
+
         // Provjera ispravnosti formata datuma
         $datum_format = '/^\d{4}-\d{2}-\d{2}$/'; // Očekivani format datuma (YYYY-MM-DD)
         if (!preg_match($datum_format, $dolazak) || !preg_match($datum_format, $odlazak)) {
@@ -53,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-            // Provjera valjanosti datuma
+        // Provjera valjanosti datuma
         $currentDate = date('Y-m-d'); // Trenutni datum
         if ($dolazak < $currentDate) {
             echo "Datum dolaska ne može biti u prošlosti.";
@@ -66,65 +75,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        
-        // Provjera dostupnosti sobe za odabrane datume
-        $sql = "SELECT * FROM rezervacija WHERE soba = ? AND (dolazak <= ? AND odlazak >= ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iss", $soba, $odlazak, $dolazak);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            echo "Soba nije dostupna za odabrane datume. Molimo odaberite drugu sobu ili promijenite datume.";
-            // Prekini daljnje izvršavanje koda
-            exit;
-        }
+   // Provjera dostupnosti sobe za odabrane datume
+$sql = "SELECT * FROM rezervacija WHERE soba = ? AND (dolazak <= ? AND odlazak >= ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("iss", $soba, $odlazak, $dolazak);
+$stmt->execute();
+$result = $stmt->get_result();
 
-
-
-        if ($odlazak <= $dolazak) {
-            echo "Datum odlaska mora biti nakon datuma dolaska.";
-            // Prekini daljnje izvršavanje koda
-            exit;
-        }
+// Ako postoje rezultati, soba nije dostupna za odabrane datume
+if ($result->num_rows > 0) {
+    echo "Soba nije dostupna za odabrane datume. Molimo odaberite drugu sobu ili promijenite datume.";
+    // Prekini daljnje izvršavanje koda
+    exit;
+}
 
         // Generisanje HTML-a za prikaz podataka iz rezervacije
         $html = "
         <!DOCTYPE html>
-        <html lang='en'>
-          <head>
-            <meta charset='UTF-8' />
-            <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-            <title>Booking form</title>
-            <link rel='stylesheet' href='style-rezervacije.css' />
-            <link
-              rel='stylesheet'
-              href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
-            />
-            <link
-              rel='stylesheet'
-              href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'
-            />
-          </head>
-          <body>
-            <div class='container'>
-              <div id='form'>
-                <h1 class='text-white text-center'>Rezervacija</h1>
+        <html lang=\"en\">
+        <head>
+            <meta charset=\"UTF-8\" />
+            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
+            <title>Booking Confirmation</title>
+            <style>
+                /* Add your custom styles here */
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f5f5f5;
+                }
+                .header {
+                    background-color: #007bff;
+                    color: #fff;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 24px;
+                }
+                .footer {
+                    background-color: #f1f1f1;
+                    color: #333;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                .reservation-details {
+                    margin-top: 20px;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                }
+                .text-center {
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div class=\"container\">
+                <div class=\"header\">Rezervacija - Potvrda</div>
 
-                <div class='reservation-details'>
-                  <p><strong>Ime:</strong> $ime</p>
-                  <p><strong>Prezime:</strong> $prezime</p>
-                  <p><strong>Broj telefona:</strong> $broj_telefona</p>
-                  <p><strong>Email:</strong> $email</p>
-                  <p><strong>Dolazak:</strong> $dolazak</p>
-                  <p><strong>Odlazak:</strong> $odlazak</p>
-                  <p><strong>Broj osoba:</strong> $broj_osoba</p>
-                  <p><strong>Soba:</strong> $soba</p>
+                <div id=\"form\">
+                    <div class=\"reservation-details\">
+                        <p><strong>Ime:</strong> $ime</p>
+                        <p><strong>Prezime:</strong> $prezime</p>
+                        <p><strong>Broj telefona:</strong> $broj_telefona</p>
+                        <p><strong>Dolazak:</strong> $dolazak</p>
+                        <p><strong>Odlazak:</strong> $odlazak</p>
+                        <p><strong>Broj osoba:</strong> $broj_osoba</p>
+                        <p><strong>Soba:</strong> $soba</p>
+                    </div>
+
+                    <p class=\"text-center\">Hvala što ste izabrali naš hotel!</p>
                 </div>
 
-                <p class='text-center'>Hvala što ste izabrali naš hotel!</p>
-              </div>
+                <div class=\"footer\">
+                    Ovo je automatska email potvrda. Molimo vas da ne odgovarate na ovu poruku.
+                </div>
             </div>
-          </body>
+        </body>
         </html>
         ";
 
@@ -171,4 +203,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-

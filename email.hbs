@@ -1,28 +1,55 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booking form</title>
-    <link rel="stylesheet" href="style-rezervacije.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
+    <title>Booking Confirmation</title>
+    <style>
+      /* Add your custom styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 24px;
+      }
+      .footer {
+        background-color: #f1f1f1;
+        color: #333;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .reservation-details {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div id="form">
-        <h1 class="text-white text-center">Rezervacija</h1>
+      <div class="header">Rezervacija - Potvrda</div>
 
+      <div id="form">
         <div class="reservation-details">
           <p><strong>Ime:</strong> $ime</p>
           <p><strong>Prezime:</strong> $prezime</p>
           <p><strong>Broj telefona:</strong> $broj_telefona</p>
-          <p><strong>Email:</strong> $email</p>
           <p><strong>Dolazak:</strong> $dolazak</p>
           <p><strong>Odlazak:</strong> $odlazak</p>
           <p><strong>Broj osoba:</strong> $broj_osoba</p>
@@ -30,6 +57,11 @@
         </div>
 
         <p class="text-center">Hvala što ste izabrali naš hotel!</p>
+      </div>
+
+      <div class="footer">
+        Ovo je automatska email potvrda. Molimo vas da ne odgovarate na ovu
+        poruku.
       </div>
     </div>
   </body>

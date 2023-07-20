@@ -1,98 +1,95 @@
-
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
-	color: #333;
-	background-color: #f2f2f2;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f2f2f2;
 }
 
 /* ................... Header .................. */
 header {
-	background-color:#87cefa;
-	color: #fff;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 9999;
+  background-color: #87cefa;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 header h1 {
-	font-size: 2rem;
-	margin: 0;
+  font-size: 2rem;
+  margin: 0;
 }
 
 nav ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 nav li {
-	margin: 0 1rem;
-
+  margin: 0 1rem;
 }
 
 nav a {
-	color: #fff;
-	text-decoration: none;
-	transition: color 0.2s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
 nav a:hover {
-	color: 	#ffbb00;
+  color: #ffbb00;
 }
 
 /* ..............Main(Naslovna)........... */
 main {
-	padding-top: 5rem;
+  padding-top: 5rem;
 }
 
 section {
-	padding: 4rem 0;
-	text-align: center;
+  padding: 4rem 0;
+  text-align: center;
 }
 
-#hero{
-	background-image: url("hotel1.jpg");
-	background-size: cover;
+#hero {
+  background-image: url("hotel1.jpg");
+  background-size: cover;
 }
 
 section h2 {
-	font-size: 2.5rem;
-	margin-bottom: 2rem;
-	text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-#hero h2{
-	color: white;
+#hero h2 {
+  color: white;
 }
 
 section h1 {
-	font-size: 5rem;
-	margin-bottom: 2rem;
-	text-align: center;
-	color:	#fffaf0;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #fffaf0;
 }
 
 section p {
-	font-size: 1.5rem;
-	margin-bottom: 2rem;
-	text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
-
 
 /*......................Usluge....................*/
 
@@ -104,11 +101,10 @@ section p {
 }
 
 #services h2 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 3rem;
   text-align: center;
   margin-bottom: 1.5rem;
-
 }
 
 #services p {
@@ -122,7 +118,7 @@ section p {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 #services li {
@@ -138,9 +134,8 @@ section p {
 }
 
 #services li:hover {
-  background-color:#87cefa;
+  background-color: #87cefa;
   color: white;
- 
 }
 
 /*......................Sobe....................*/
@@ -204,93 +199,74 @@ section p {
 }
 
 .button {
-	display: inline-block;
-	background-color: #87cefa;
-	color: #fff;
-	padding: 1rem 2rem;
-	border: none;
-	border-radius: 5px;
-	font-size: 1.2rem;
-	text-decoration: none;
-	margin-top: 2rem;
-	transition: background-color 0.2s ease-in-out;
+  display: inline-block;
+  background-color: #87cefa;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .button:hover {
-	background-color: #ffbb00;
-	cursor: pointer;
+  background-color: #ffbb00;
+  cursor: pointer;
 }
-
-
 
 /*......................Rezervacije....................*/
 
-
-
-
-
-
-
-
 /*......................Forma....................*/
 form {
-	display: flex;
-	flex-direction: column;
-	max-width: 600px;
-	margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 form label {
-	font-size: 1.2rem;
-	margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 form input,
 form textarea {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.2rem;
-	padding: 0.5rem;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 2rem;
 }
 
 form input:focus,
 form textarea:focus {
-	border-color: #ffd700;
-	outline: none;
+  border-color: #ffd700;
+  outline: none;
 }
 
 form input[type="submit"] {
-	background-color: 	#87cefa;
-	color: #333;
-	padding: 1rem 2rem;
-	border: none;
-	border-radius: 5px;
-	font-size: 1.2rem;
-	text-decoration: none;
-	transition: background-color 0.2s ease-in-out;
-	align-self: flex-end;
+  background-color: #87cefa;
+  color: #333;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+  align-self: flex-end;
 }
 
 form input[type="submit"]:hover {
-	background-color:#ffd700;
-	cursor: pointer;
+  background-color: #ffd700;
+  cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
 
 /*......................Footer....................*/
 footer {
-	background-color: 	#87cefa;
-	color: #fff;
-	text-align: center;
+  background-color: #87cefa;
+  color: #fff;
+  text-align: center;
 }
