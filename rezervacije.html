@@ -24,16 +24,20 @@
             <div id="content">
               <i class="fa fa-user" aria-hidden="true"></i>
               <input
+                required
                 type="text"
                 id="input-group"
                 name="ime"
                 placeholder="Ime"
+                pattern="[A-Za-z]{3,}"
+                title="Ime mora imati minimalno 3 slova"
               />
             </div>
 
             <div id="content">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <input
+                required
                 type="input"
                 id="input-group"
                 name="broj_telefona"
@@ -44,6 +48,7 @@
             <div id="content">
               <i class="fa fa-calendar" aria-hidden="true"></i>
               <input
+                required
                 type="date"
                 id="input-group"
                 name="dolazak"
@@ -54,6 +59,7 @@
             <div id="content">
               <i class="fa fa-users" aria-hidden="true"></i>
               <select
+                required
                 id="input-group"
                 name="broj_osoba"
                 style="background-color: black"
@@ -71,27 +77,31 @@
             <div id="content">
               <i class="fa fa-user" aria-hidden="true"></i>
               <input
+                required
                 type="text"
                 id="input-group"
                 name="prezime"
                 placeholder="Prezime"
+                pattern="[A-Za-z]{3,}"
+                title="Prezime mora imati minimalno 3 slova"
               />
             </div>
 
             <div id="content">
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
               <input
+                required
                 type="email"
                 id="input-group"
                 name="email"
                 placeholder="Email"
-                value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"
               />
             </div>
 
             <div id="content">
               <i class="fa fa-calendar" aria-hidden="true"></i>
               <input
+                required
                 type="date"
                 id="input-group"
                 name="odlazak"
@@ -102,19 +112,19 @@
             <div id="content">
               <i class="fa fa-users" aria-hidden="true"></i>
               <select
+                required
                 id="input-group"
                 name="soba"
                 style="background-color: black"
               >
-                <option value="">Soba</option>
                 <option value="Soba 1 (Delux apartman)">
                   Soba 1 (Delux apartman)
                 </option>
                 <option value="Soba 2 (Pogled na more)">
                   Soba 2 (Pogled na more)
                 </option>
-                <option value="Soba 2 (Pogled na park)">
-                  Soba 2 (Pogled na park)
+                <option value="Soba 3 (Pogled na park)">
+                  Soba 3 (Pogled na park)
                 </option>
               </select>
             </div>
