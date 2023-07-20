@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking form</title>
+    <link rel="stylesheet" href="style-rezervacije.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-group" method="POST" action="script.php">
+        <div id="form">
+          <h1 class="text-white text-center">Rezerviši odmah</h1>
+
+          <div id="first-group">
+            <div id="content">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <input
+                type="text"
+                id="input-group"
+                name="ime"
+                placeholder="Ime"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <input
+                type="input"
+                id="input-group"
+                name="broj_telefona"
+                placeholder="Broj telefona"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <input
+                type="date"
+                id="input-group"
+                name="dolazak"
+                placeholder="Dolazak"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <select
+                id="input-group"
+                name="broj_osoba"
+                style="background-color: black"
+              >
+                <option value="">Broj osoba</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="second-group">
+            <div id="content">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <input
+                type="text"
+                id="input-group"
+                name="prezime"
+                placeholder="Prezime"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <input
+                type="email"
+                id="input-group"
+                name="email"
+                placeholder="Email"
+                value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <input
+                type="date"
+                id="input-group"
+                name="odlazak"
+                placeholder="Odlazak"
+              />
+            </div>
+
+            <div id="content">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <select
+                id="input-group"
+                name="soba"
+                style="background-color: black"
+              >
+                <option value="">Soba</option>
+                <option value="Soba 1 (Delux apartman)">
+                  Soba 1 (Delux apartman)
+                </option>
+                <option value="Soba 2 (Pogled na more)">
+                  Soba 2 (Pogled na more)
+                </option>
+                <option value="Soba 2 (Pogled na park)">
+                  Soba 2 (Pogled na park)
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" value="Submit" id="submit-btn" name="submit">
+            Book Now
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
